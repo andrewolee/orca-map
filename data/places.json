@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Abbotsford",
+    "longitude": -122.299987,
+    "latitude": 49.050377
+  },
+  {
+    "name": "Aberdeen",
+    "longitude": -123.814391,
+    "latitude": 46.974896
+  },
+  {
+    "name": "Bellingham",
+    "longitude": -122.486927,
+    "latitude": 48.760136
+  },
+  {
+    "name": "Bremerton",
+    "longitude": -122.642017,
+    "latitude": 47.573596
+  },
+  {
+    "name": "Everett",
+    "longitude": -122.199968,
+    "latitude": 47.960417
+  },
+  {
+    "name": "Nanaimo",
+    "longitude": -123.934291,
+    "latitude": 49.14602
+  },
+  {
+    "name": "Olympia",
+    "longitude": -122.899434,
+    "latitude": 47.038045
+  },
+  {
+    "name": "Seattle",
+    "longitude": -122.315322,
+    "latitude": 47.600423
+  },
+  {
+    "name": "Tacoma",
+    "longitude": -122.446824,
+    "latitude": 47.240568
+  },
+  {
+    "name": "Vancouver",
+    "longitude": -123.12359,
+    "latitude": 49.275362
+  },
+  {
+    "name": "Victoria",
+    "longitude": -123.350001,
+    "latitude": 48.433283
+  }
+]

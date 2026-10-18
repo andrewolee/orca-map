@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "d3-contour": "^4.0.2",
+    "playwright": "^1.64.1"
+  }
+}

@@ -4,6 +4,8 @@
   --ink-muted: #85a0b0;
   --pin: #4fb3bf;
   --pin-active: #e8a33d;
+  --land: #16222f;
+  --land-stroke: #243547;
 }
 
 * {
@@ -37,6 +39,30 @@ main {
   width: 100%;
   max-width: 900px;
   height: 700px;
+}
+
+.bathymetry-band {
+  fill: #0d2b3e;
+  fill-opacity: 0.22;
+  stroke: none;
+}
+
+.coastline {
+  fill: var(--land);
+  stroke: var(--land-stroke);
+  stroke-width: 0.75px;
+}
+
+.place-dot {
+  fill: var(--ink-muted);
+  opacity: 0.6;
+}
+
+.place-label {
+  fill: var(--ink-muted);
+  font-size: 10px;
+  opacity: 0.7;
+  letter-spacing: 0.02em;
 }
 
 .hydrophone-pin {

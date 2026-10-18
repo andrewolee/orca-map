@@ -6,7 +6,12 @@ const svg = d3.select("#map");
 const width = svg.node().getBoundingClientRect().width;
 const height = svg.node().getBoundingClientRect().height;
 
-d3.json("data/hydrophones.json").then((hydrophones) => {
+Promise.all([
+  d3.json("data/hydrophones.json"),
+  d3.json("data/coastline.json"),
+  d3.json("data/places.json"),
+  d3.json("data/bathymetry.json"),
+]).then(([hydrophones, coastline, places, bathymetry]) => {
   const visible = hydrophones.filter((h) => !EXCLUDED_HYDROPHONE_IDS.has(h.id));
 
   // Build a GeoJSON FeatureCollection so the projection can auto-fit to the
@@ -20,15 +25,56 @@ d3.json("data/hydrophones.json").then((hydrophones) => {
     })),
   };
 
+  // Fit to the coastline's extent, not the pins' -- the coastline covers a
+  // wider area, so this keeps the pins from pinning the zoom level.
   const projection = d3.geoMercator().fitExtent(
     [
       [40, 40],
       [width - 40, height - 40],
     ],
-    points
+    coastline
   );
 
   const pathGenerator = d3.geoPath(projection);
+
+  // Same fill color at each depth band, stacked shallow-to-deep so overlapping
+  // (nested) regions accumulate opacity -- deeper water reads darker without
+  // needing to compute the band differences explicitly.
+  const bathymetryBands = [...bathymetry.features].sort(
+    (a, b) => a.properties.depth - b.properties.depth
+  );
+
+  svg
+    .selectAll(".bathymetry-band")
+    .data(bathymetryBands)
+    .join("path")
+    .attr("class", "bathymetry-band")
+    .attr("d", pathGenerator);
+
+  svg
+    .selectAll(".coastline")
+    .data(coastline.features)
+    .join("path")
+    .attr("class", "coastline")
+    .attr("d", pathGenerator);
+
+  svg
+    .selectAll(".place-dot")
+    .data(places)
+    .join("circle")
+    .attr("class", "place-dot")
+    .attr("r", 2)
+    .attr("cx", (d) => projection([d.longitude, d.latitude])[0])
+    .attr("cy", (d) => projection([d.longitude, d.latitude])[1]);
+
+  svg
+    .selectAll(".place-label")
+    .data(places)
+    .join("text")
+    .attr("class", "place-label")
+    .attr("x", (d) => projection([d.longitude, d.latitude])[0] + 6)
+    .attr("y", (d) => projection([d.longitude, d.latitude])[1] + 3)
+    .text((d) => d.name);
 
   const pins = svg
     .selectAll(".hydrophone-pin")
