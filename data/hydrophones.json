@@ -1,0 +1,62 @@
+[
+  {
+    "id": "rpi_andrews_bay",
+    "name": "Andrews Bay",
+    "longitude": -123.166408,
+    "latitude": 48.546653
+  },
+  {
+    "id": "rpi_sunset_bay",
+    "name": "Beach Camp at Sunset Bay",
+    "longitude": -122.33393605795372,
+    "latitude": 47.86497296593844
+  },
+  {
+    "id": "rpi_bush_point",
+    "name": "Bush Point",
+    "longitude": -122.6040035,
+    "latitude": 48.0336664
+  },
+  {
+    "id": "das_haro_strait",
+    "name": "DAS - Haro Strait",
+    "longitude": -122.47023,
+    "latitude": 47.88472
+  },
+  {
+    "id": "rpi_mast_center",
+    "name": "MaST Center Aquarium",
+    "longitude": -122.32512,
+    "latitude": 47.34922
+  },
+  {
+    "id": "rpi_north_sjc",
+    "name": "North San Juan Channel",
+    "longitude": -123.058779,
+    "latitude": 48.591294
+  },
+  {
+    "id": "rpi_orcasound_lab",
+    "name": "Orcasound Lab",
+    "longitude": -123.1735774,
+    "latitude": 48.5583362
+  },
+  {
+    "id": "rpi_point_robinson",
+    "name": "Point Robinson",
+    "longitude": -122.37267,
+    "latitude": 47.388383
+  },
+  {
+    "id": "rpi_port_townsend",
+    "name": "Port Townsend",
+    "longitude": -122.760614,
+    "latitude": 48.135743
+  },
+  {
+    "id": "rpi_lehmkuhl",
+    "name": "Statsraad Lehmkuhl",
+    "longitude": 5.320242,
+    "latitude": 60.398004
+  }
+]
